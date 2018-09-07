@@ -20,7 +20,7 @@ public class Hub {
     public var onActionButtonPressed: ((Bool, Int) -> Void)?
     public var onGreenButtonPressed: ((Bool) -> Void)?
     public var onTiltSensorChanged: ((TiltSensorDirection, Hub.Port) -> Void)?
-    public var onMotionSensorChanged: ((Double, Hub.Port) -> Void)?
+    public var onMotionSensorChanged: ((Int, Hub.Port) -> Void)?
     
     init() {
         proxy = PlaygroundPage.current.liveView as? PlaygroundRemoteLiveViewProxy

@@ -11,8 +11,8 @@ public class InputCommand {
     
     public static func defaultInputFormatCommand(ioType: IOType, portId: PortId) -> Data? {
         let mode: UInt8
-        let interval: UInt8
-        let format: UInt8
+        var interval: UInt8 = 0x01
+        var format: UInt8 = 0x00
         switch ioType {
         case .voltageSensor, .currentSensor:
             mode = 0x00
@@ -20,20 +20,12 @@ public class InputCommand {
             format = 0x02
         case .rgbLight:
             mode = 0x00
-            interval = 0x01
-            format = 0x00
         case .tiltSensor:
             mode = 0x01 // 0: Angle (x,y), 1: Tilt
-            interval = 0x01
-            format = 0x02
         case .motionSensor:
             mode = 0x00 // 0: Detect, 1: Count, 2: Crash
-            interval = 0x01
-            format = 0x02
         case .colorAndDistanceSensor:
-            mode = 0x00 // 0: Color only
-            interval = 0x01
-            format = 0x00
+            mode = 0x00
         default:
             return nil
         }
@@ -56,13 +48,13 @@ public class InputCommand {
         case .currentSensor:
             return 4 // Float32 (mA)
         case .rgbLight:
-            return 1 // UInt8
+            return 1 // UInt8 (Color)
         case .tiltSensor:
-            return 4 // Float32?
+            return 1 // UInt8 (Tilt)
         case .motionSensor:
-            return 4 // Float32
+            return 1 // UInt8 (Distance)
         case .colorAndDistanceSensor:
-            return 1
+            return 1 // UInt8 (Color)
         default:
             return nil
         }

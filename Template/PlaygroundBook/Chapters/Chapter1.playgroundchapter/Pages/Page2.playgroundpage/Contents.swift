@@ -36,8 +36,8 @@ func onTiltSensorChanged(direction: TiltSensorDirection, port: Hub.Port) {
     }
 }
 
-func onMotionSensorChanged(distance: Double, port: Hub.Port) {
-    setPower(100 - Int(distance * 10))
+func onMotionSensorChanged(distance: Int, port: Hub.Port) {
+    setPower(100 - distance * 10)
 }
 
 //#-hidden-code

@@ -24,7 +24,7 @@ extension InputValue: CustomStringConvertible {
     }
 }
 
-public enum TiltSensorDirection: Float32 {
+public enum TiltSensorDirection: UInt8 {
     case neutral    = 0
     case backward   = 3
     case right      = 5

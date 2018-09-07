@@ -16,7 +16,7 @@ enum Message {
     case actionButtonPressed(pressed: Bool, index: Int)
     case greenButtonPressed(pressed: Bool)
     case tiltSensorChanged(direction: TiltSensorDirection, port: Hub.Port)
-    case motionSensorChanged(distance: Double, port: Hub.Port)
+    case motionSensorChanged(distance: Int, port: Hub.Port)
 }
 
 extension Dictionary where Key == String, Value == PlaygroundSupport.PlaygroundValue {
@@ -68,12 +68,12 @@ extension Message {
             self = .greenButtonPressed(pressed: pressed)
             
         case "tiltSensorChanged":
-            guard let direction = dict.double(key: "direction").flatMap({ TiltSensorDirection(rawValue: Float32($0)) }) else { return nil}
+            guard let direction = dict.integer(key: "direction").flatMap({ TiltSensorDirection(rawValue: UInt8($0)) }) else { return nil}
             guard let port = dict.integer(key: "port").flatMap({ Hub.Port(rawValue: UInt8($0)) }) else { return nil}
             self = .tiltSensorChanged(direction: direction, port: port)
             
         case "motionSensorChanged":
-            guard let distance = dict.double(key: "distance") else { return nil}
+            guard let distance = dict.integer(key: "distance") else { return nil}
             guard let port = dict.integer(key: "port").flatMap({ Hub.Port(rawValue: UInt8($0)) }) else { return nil}
             self = .motionSensorChanged(distance: distance, port: port)
             
@@ -94,10 +94,10 @@ extension Message {
             return .dictionary(["cmd": .string("greenButtonPressed"), "pressed": .boolean(pressed)])
             
         case .tiltSensorChanged(let direction, let port):
-            return .dictionary(["cmd": .string("tiltSensorChanged"), "direction": .floatingPoint(Double(direction.rawValue)), "port": .integer(Int(port.rawValue))])
+            return .dictionary(["cmd": .string("tiltSensorChanged"), "direction": .integer(Int(direction.rawValue)), "port": .integer(Int(port.rawValue))])
             
         case .motionSensorChanged(let distance, let port):
-            return .dictionary(["cmd": .string("motionSensorChanged"), "distance": .floatingPoint(distance), "port": .integer(Int(port.rawValue))])
+            return .dictionary(["cmd": .string("motionSensorChanged"), "distance": .integer(distance), "port": .integer(Int(port.rawValue))])
         }
     }
 }

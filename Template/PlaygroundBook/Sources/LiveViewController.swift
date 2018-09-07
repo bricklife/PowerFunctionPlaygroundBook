@@ -184,11 +184,6 @@ extension LiveViewController: CBPeripheralDelegate {
                         let value = try readStream.read() as UInt8
                         print(portId, ioType, "UInt8", value)
                         inputValues[portId] = .uint(value)
-                    }
-                    if length == 4 {
-                        let value = try readStream.read() as Float32
-                        print(portId, ioType, "Float32", value)
-                        inputValues[portId] = .float(value)
                         
                         if let port = Hub.Port(rawValue: portId) {
                             switch ioType {
@@ -196,11 +191,16 @@ extension LiveViewController: CBPeripheralDelegate {
                                 guard let direction = TiltSensorDirection(rawValue: value) else { break }
                                 sendMessage(.tiltSensorChanged(direction: direction, port: port))
                             case .motionSensor:
-                                sendMessage(.motionSensorChanged(distance: Double(value), port: port))
+                                sendMessage(.motionSensorChanged(distance: Int(value), port: port))
                             default:
                                 break
                             }
                         }
+                    }
+                    if length == 4 {
+                        let value = try readStream.read() as Float32
+                        print(portId, ioType, "Float32", value)
+                        inputValues[portId] = .float(value)
                     }
                 }
             } catch {
@@ -272,7 +272,7 @@ extension LiveViewController: UITableViewDataSource {
                 return color.description
             }
         case .tiltSensor:
-            if case let .float(value) = inputValue, let direction = TiltSensorDirection(rawValue: value) {
+            if case let .uint(value) = inputValue, let direction = TiltSensorDirection(rawValue: value) {
                 return direction.description
             }
         case .motionSensor:
