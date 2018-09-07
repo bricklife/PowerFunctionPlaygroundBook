@@ -32,7 +32,7 @@ func onTiltSensorChanged(direction: TiltSensorDirection, port: Hub.Port) {
     case .forward:
         setColor(.orange)
     case .unknown:
-        setColor(.off)
+        setColor(.black)
     }
 }
 
