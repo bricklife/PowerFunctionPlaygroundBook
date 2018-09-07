@@ -261,6 +261,8 @@ extension LiveViewController: UITableViewDataSource {
             return nil
         case .trainMotor:
             return nil
+        case .ledLight:
+            return nil
         case .voltageSensor:
             return "\(inputValue) mV"
         case .currentSensor:
