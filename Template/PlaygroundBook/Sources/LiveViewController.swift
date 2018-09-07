@@ -278,7 +278,9 @@ extension LiveViewController: UITableViewDataSource {
         case .motionSensor:
             return inputValue.description
         case .colorAndDistanceSensor:
-            return nil
+            if case let .uint(value) = inputValue, let color = Color(rawValue: value) {
+                return color.description
+            }
         case .interactiveMotor:
             return nil
         case .builtInMotor:
