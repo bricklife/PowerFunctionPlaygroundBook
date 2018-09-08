@@ -18,7 +18,7 @@ public enum Color: UInt8 {
     case yellow     = 0x07
     case orange     = 0x08
     case red        = 0x09
-    case white      = 0x10
+    case white      = 0x0a
     case none       = 0xff
 }
 
