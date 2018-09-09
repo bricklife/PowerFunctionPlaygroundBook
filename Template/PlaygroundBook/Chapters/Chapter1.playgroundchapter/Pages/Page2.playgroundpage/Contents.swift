@@ -40,11 +40,16 @@ func onMotionSensorChanged(distance: Int, port: Hub.Port) {
     setPower(100 - distance * 10)
 }
 
+func onColorSensorChanged(color: Color, port: Hub.Port) {
+    setColor(color)
+}
+
 //#-hidden-code
 hub.onActionButtonPressed = onActionButtonPressed
 hub.onGreenButtonPressed = onGreenButtonPressed
 hub.onTiltSensorChanged = onTiltSensorChanged
 hub.onMotionSensorChanged = onMotionSensorChanged
+hub.onColorSensorChanged = onColorSensorChanged
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 //#-end-hidden-code

@@ -17,6 +17,7 @@ enum Message {
     case greenButtonPressed(pressed: Bool)
     case tiltSensorChanged(direction: TiltSensorDirection, port: Hub.Port)
     case motionSensorChanged(distance: Int, port: Hub.Port)
+    case colorSensorChanged(color: Color, port: Hub.Port)
 }
 
 extension Dictionary where Key == String, Value == PlaygroundSupport.PlaygroundValue {
@@ -77,6 +78,11 @@ extension Message {
             guard let port = dict.integer(key: "port").flatMap({ Hub.Port(rawValue: UInt8($0)) }) else { return nil}
             self = .motionSensorChanged(distance: distance, port: port)
             
+        case "colorSensorChanged":
+            guard let color = dict.integer(key: "color").flatMap({ Color(rawValue: UInt8($0)) }) else { return nil}
+            guard let port = dict.integer(key: "port").flatMap({ Hub.Port(rawValue: UInt8($0)) }) else { return nil}
+            self = .colorSensorChanged(color: color, port: port)
+
         default:
             return nil
         }
@@ -98,6 +104,9 @@ extension Message {
             
         case .motionSensorChanged(let distance, let port):
             return .dictionary(["cmd": .string("motionSensorChanged"), "distance": .integer(distance), "port": .integer(Int(port.rawValue))])
+            
+        case .colorSensorChanged(let color, let port):
+            return .dictionary(["cmd": .string("colorSensorChanged"), "color": .integer(Int(color.rawValue)), "port": .integer(Int(port.rawValue))])
         }
     }
 }

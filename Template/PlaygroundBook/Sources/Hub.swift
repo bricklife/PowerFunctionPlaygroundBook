@@ -21,7 +21,8 @@ public class Hub {
     public var onGreenButtonPressed: ((Bool) -> Void)?
     public var onTiltSensorChanged: ((TiltSensorDirection, Hub.Port) -> Void)?
     public var onMotionSensorChanged: ((Int, Hub.Port) -> Void)?
-    
+    public var onColorSensorChanged: ((Color, Hub.Port) -> Void)?
+
     init() {
         proxy = PlaygroundPage.current.liveView as? PlaygroundRemoteLiveViewProxy
         proxy?.delegate = self
@@ -61,6 +62,8 @@ extension Hub: PlaygroundRemoteLiveViewProxyDelegate {
             onTiltSensorChanged?(direction, port)
         case .motionSensorChanged(let distance, let port):
             onMotionSensorChanged?(distance, port)
+        case .colorSensorChanged(let color, let port):
+            onColorSensorChanged?(color, port)
         default:
             break
         }

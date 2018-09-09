@@ -192,6 +192,9 @@ extension LiveViewController: CBPeripheralDelegate {
                                 sendMessage(.tiltSensorChanged(direction: direction, port: port))
                             case .motionSensor:
                                 sendMessage(.motionSensorChanged(distance: Int(value), port: port))
+                            case .colorAndDistanceSensor:
+                                guard let color = Color(rawValue: value) else { break }
+                                sendMessage(.colorSensorChanged(color: color, port: port))
                             default:
                                 break
                             }
