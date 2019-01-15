@@ -13,7 +13,7 @@ In support of this, there are three targets in this Xcode project:
 - **Book_Sources**: Compiles the book-level auxiliary sources module, allowing book-level sources to be developed with full editor integration
 - **LiveViewTestApp**: Produces an app which uses the `Book_Sources` module to show the live view similarly to how it would be shown in Swift Playgrounds
 
-This project includes the PlaygroundSupport and PlaygroundBluetooth frameworks from Swift Playgrounds to allow the Book_Sources and LiveViewTestApp targets to take full advantage of those APIs. The supporting content included with this template, including these frameworks, requires Xcode 9.3 to build. Attempting to use this template with another version of Xcode may result in build errors.
+This project includes the PlaygroundSupport and PlaygroundBluetooth frameworks from Swift Playgrounds to allow the Book_Sources and LiveViewTestApp targets to take full advantage of those APIs. The supporting content included with this template, including these frameworks, requires Xcode 10.0 to build. Attempting to use this template with another version of Xcode may result in build errors.
 
 For more information about the playground book file format, see *[Playground Book Format Reference](https://developer.apple.com/library/content/documentation/Xcode/Conceptual/swift_playgrounds_doc_format/)*.
 
