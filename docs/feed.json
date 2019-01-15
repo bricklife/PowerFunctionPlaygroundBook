@@ -1,0 +1,32 @@
+{
+    "title": "Power Function 2.0 Playground Book",
+    "subtitle": "Playground Book for LEGO WeDo 2.0, BOOST, and Powered Up",
+    "publisherName": "Shinichiro Oba",
+    "feedIdentifier": "com.bricklife.playground.power-function",
+    "contactURL": "https://twitter.com/ooba",
+    "formatVersion": "1.0",
+    "documents": [
+        {
+            "title": "WeDo 2.0",
+            "overviewSubtitle": "overviewSubtitle",
+            "detailSubtitle": "detailSubtitle",
+            "description": "description",
+            "contentIdentifier": "com.bricklife.playground.power-function.WeDo-2-0",
+            "contentVersion": "1.0",
+            "url": "wedo/wedo.playgroundbook.zip",
+            "publishedDate": "2019-01-15T00:00:00+00:00",
+            "lastUpdatedDate": "2019-01-15T00:00:00+00:00",
+            "thumbnailURL": "wedo/thumbnail.png",
+            "bannerImageURL": "wedo/banner.png",
+            "additionalInformation": [
+                {
+                    "name": "Languages",
+                    "value": "English"
+                }
+            ],
+            "previewImageURLs": [
+                "wedo/preview.png"
+            ]
+        }
+    ]
+}
