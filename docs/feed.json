@@ -8,11 +8,10 @@
     "documents": [
         {
             "title": "WeDo 2.0",
-            "overviewSubtitle": "overviewSubtitle",
-            "detailSubtitle": "detailSubtitle",
-            "description": "description",
+            "overviewSubtitle": "Coding WeDo 2.0 in Swift",
+            "description": "This playground book supports motor, train motor, RGB light, tilt sensor, motion sensor, and color sensor with WeDo 2.0.",
             "contentIdentifier": "com.bricklife.playground.power-function.WeDo-2-0",
-            "contentVersion": "1.0",
+            "contentVersion": "0.1",
             "url": "wedo/wedo.playgroundbook.zip",
             "publishedDate": "2019-01-15T00:00:00+00:00",
             "lastUpdatedDate": "2019-01-15T00:00:00+00:00",
@@ -20,12 +19,15 @@
             "bannerImageURL": "wedo/banner.png",
             "additionalInformation": [
                 {
-                    "name": "Languages",
+                    "name": "Version:",
+                    "value": "0.1"
+                },
+                {
+                    "name": "Languages:",
                     "value": "English"
                 }
             ],
             "previewImageURLs": [
-                "wedo/preview.png"
             ]
         }
     ]
