@@ -5,6 +5,7 @@ Subscription Page: https://bricklife.github.io/PowerFunctionPlaygroundBook/
 ## ToDo
 
 - [x] Support LEGO WeDo 2.0
+- [ ] Support multi-thread
 - [ ] Update meta data and image files
 - [ ] Support Landscape
 - [ ] Polish Live Page with images
